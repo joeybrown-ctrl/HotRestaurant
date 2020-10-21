@@ -6,7 +6,7 @@ const path = require("path");
 // Sets up the Express App
 // =============================================================
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 8080;
 
 // Sets up the Express app to handle data parsing
 app.use(express.urlencoded({ extended: true }));
@@ -15,27 +15,12 @@ app.use(express.json());
 // restaurant data(DATA)
 // =============================================================
 const reservations = [
-    // {
-    //     routeName: "yoda",
-    //     name: "Yoda",
-    //     role: "Jedi Master",
-    //     age: 900,
-    //     forcePoints: 2000
-    // },
-    // {
-    //     routeName: "darthmaul",
-    //     name: "Darth Maul",
-    //     role: "Sith Lord",
-    //     age: 200,
-    //     forcePoints: 1200
-    // },
-    // {
-    //     routeName: "obiwankenobi",
-    //     name: "Obi Wan Kenobi",
-    //     role: "Jedi Master",
-    //     age: 55,
-    //     forcePoints: 1350
-    // }
+    {
+        name: "Mister Cat",
+        email: "mrcat@mrcat.com",
+        id: "meowMEOW",
+        phone: "555 555-5555"
+    }
 ];
 
 // Routes
@@ -43,15 +28,15 @@ const reservations = [
 
 // Basic route that sends the user first to the AJAX Page
 app.get("/", function (req, res) {
-    res.sendFile(path.join(__dirname, "home.html"));
+    res.sendFile(path.join(__dirname, "develop/home.html"));
 });
 
-app.get("/makereservation", function (req, res) {
-    res.sendFile(path.join(__dirname, "makereservation.html"));
+app.get("/reserve", function (req, res) {
+    res.sendFile(path.join(__dirname, "develop/reserve.html"));
 });
 
-app.get("/viewtables", function (req, res) {
-    res.sendFile(path.join(__dirname, "viewtables.html"));
+app.get("/tables", function (req, res) {
+    res.sendFile(path.join(__dirname, "develop/tables.html"));
 });
 
 // Displays all tables
