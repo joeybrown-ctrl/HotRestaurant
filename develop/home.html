@@ -19,15 +19,15 @@
             <h1>Hot Restaurant</h1>
             <h3>Make your reservation before it's too late!</h3>
             <hr>
-            <a href="./makereservation.html"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span> Make
+            <a href="./reserve.html"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span> Make
                     Reservation </button></a>
-            <a href="./viewtables.html"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span> View
+            <a href="./tables.html"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span> View
                     Tables </button></a>
         </div>
 
 
         <script type="text/javascript">
-            // Question: What does this code do?
+        
             $("#add-btn").on("click", function (event) {
                 event.preventDefault();
                 var newReservation = {
@@ -37,7 +37,6 @@
                     uniqueId: $("#uniqueId").val().trim()
                 };
 
-                // Question: What does this code do??
                 $.post("/api/characters", newCharacter)
                     .then(function (data) {
                         console.log("add.html", data);
